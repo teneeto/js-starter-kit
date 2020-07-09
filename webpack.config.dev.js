@@ -13,4 +13,15 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ]
+      }
+    ]
+  }
 }
