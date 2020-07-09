@@ -1,0 +1,43 @@
+{
+  "name": "js-starter-kit",
+  "version": "1.0.0",
+  "description": "Javascript development environment",
+  "scripts": {
+    "prestart": "node buildscripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src",
+    "open:src": "node buildscripts/srcServer.js",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel"
+  },
+  "author": "Eto Olei",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "chalk": "^4.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.4.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-watch": "^7.0.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.3.0",
+    "jsdom": "^16.2.2",
+    "localtunnel": "^2.0.0",
+    "mocha": "^8.0.1",
+    "nock": "^13.0.2",
+    "npm-run-all": "^4.1.5",
+    "numeral": "^2.0.6",
+    "open": "^7.0.4",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.43.0",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-md5-hash": "0.0.6"
+  }
+}
