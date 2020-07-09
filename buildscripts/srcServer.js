@@ -1,8 +1,8 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
 
 //used to open automatically launch a browser
-const open = require('open');
+import open from 'open';
 
 const port = 3000;
 const app = express();
