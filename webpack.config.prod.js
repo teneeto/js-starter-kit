@@ -1,19 +1,14 @@
 import path from 'path';
+// import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-
 export default {
-  mode: 'development',
+  mode: 'production',
   entry: [
     path.resolve(__dirname, 'src/index')
   ],
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   target: 'web',
-  output: {
-    path: path.resolve(__dirname, 'src'),
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -21,6 +16,11 @@ export default {
       title: 'Production',
     }),
   ],
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
   module: {
     rules: [
       {
