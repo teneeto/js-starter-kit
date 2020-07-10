@@ -2,6 +2,9 @@ import path from 'path';
 // import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+//deprecated webpackmd5hash
+// import WebpackMd5Hash from 'webpack-md5-hash';
+
 export default {
   mode: 'production',
   entry: {
@@ -32,7 +35,7 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].bundle.js'
+    filename: '[name].[contenthash].bundle.js'
   },
   optimization: {
     splitChunks: {
