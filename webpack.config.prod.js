@@ -4,14 +4,27 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   mode: 'production',
-  entry: [
-    path.resolve(__dirname, 'src/index')
-  ],
+  entry: {
+    vendor: path.resolve(__dirname, 'src/vendor'),
+    main: path.resolve(__dirname, 'src/index')
+  },
   devtool: 'source-map',
   target: 'web',
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
       inject: true,
       title: 'Production',
     }),
@@ -19,7 +32,12 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
   },
   module: {
     rules: [

@@ -18,7 +18,7 @@ export default {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       inject: true,
-      title: 'Production',
+      title: 'Development',
     }),
   ],
   module: {
