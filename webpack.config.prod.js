@@ -1,6 +1,7 @@
 import path from 'path';
 // import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 //deprecated webpackmd5hash
 // import WebpackMd5Hash from 'webpack-md5-hash';
@@ -14,6 +15,10 @@ export default {
   devtool: 'source-map',
   target: 'web',
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].bundle.css',
+      chunkFilename: '[id].[contenthash].bundle.css'
+    }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       minify: {
@@ -46,10 +51,7 @@ export default {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       }
     ]
   }
